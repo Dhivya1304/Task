@@ -1,0 +1,42 @@
+<div class="bg-img">
+  <div class="wrapper">
+   <nav class="navbar navbar-default">
+       <div *ngIf="!isSignedIn" class="container" id="formContent">
+                <div class=" card-header" id="formHeader">
+                  <h2>
+                      ANGULAR FIREBASE LOGIN
+                  </h2>
+                </div>
+  
+  <div *ngIf="!isSignedIn">
+    <h3>Sign up</h3>
+    <label for="email">E-Mail </label>
+    <input type="text" #emailSignup/><br><br>
+    <label for="password">Password </label>
+    <input type="text" #passwordSignup/><br><br>
+    <div class="button">
+      <input type="button" name="button" value="SIGN UP" (click)="onSignup(emailSignup.value,passwordSignup.value)">
+    </div>
+   </div>
+  <hr>
+  <div *ngIf="!isSignedIn">
+    <h3>Sign in</h3>
+    <label for="email">E-Mail </label>
+    <input type="text" #emailSignin/><br><br>
+    <label for="password">Password </label>
+    <input type="text" #passwordSignin/><br><br>
+    <div class="button">
+      <input type="button" name="button" value="SIGN IN" (click)="onSignin(emailSignin.value,passwordSignin.value)">
+    </div>
+    </div>
+    <br>
+    <div  *ngIf="!isSignedIn" id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+   
+  </div>
+  </nav>
+  </div>
+  </div>
+  <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
+  
